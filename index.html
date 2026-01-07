@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPU Scheduling Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CPU Scheduling Simulator</h1>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <h2>Process Input</h2>
+                <div class="input-controls">
+                    <label for="algorithm">Scheduling Algorithm:</label>
+                    <select id="algorithm">
+                        <option value="fcfs">First Come First Serve (FCFS)</option>
+                        <option value="sjf">Shortest Job First (SJF - Non-preemptive)</option>
+                        <option value="priority_nonpreemptive">Priority Scheduling (Non-preemptive)</option>
+                        <option value="priority_preemptive">Priority Scheduling (Preemptive)</option>
+                        <option value="roundrobin">Round Robin</option>
+                    </select>
+
+                    <label for="quantum" id="quantum-label" style="display: none;">Time Quantum:</label>
+                    <input type="number" id="quantum" min="1" value="4" style="display: none;">
+
+                    <label for="num-processes">Number of Processes:</label>
+                    <input type="number" id="num-processes" min="1" max="10" value="4">
+                    
+                    <button id="generate-btn">Generate Process Table</button>
+                    <button id="sample-btn">Load Sample Data</button>
+                    <button id="reset-btn">Reset</button>
+                </div>
+
+                <div id="process-table-container" style="display: none;">
+                    <h3>Process Details</h3>
+                    <table id="process-table">
+                        <thead>
+                            <tr>
+                                <th>Process ID</th>
+                                <th>Arrival Time</th>
+                                <th>Burst Time</th>
+                                <th>Priority</th>
+                            </tr>
+                        </thead>
+                        <tbody id="process-table-body">
+                            <!-- Process rows will be generated here -->
+                        </tbody>
+                    </table>
+                    <button id="calculate-btn">Calculate Scheduling</button>
+                </div>
+            </section>
+
+            <section class="visualization-section">
+                <h2>Simulation Results</h2>
+                
+                <div class="results-container">
+                    <div class="gantt-chart-container">
+                        <h3>Gantt Chart</h3>
+                        <div id="gantt-chart">
+                            <p class="placeholder">Gantt chart will appear here after calculation</p>
+                        </div>
+                        <div id="gantt-legend"></div>
+                    </div>
+
+                    <div class="results-table-container">
+                        <h3>Results Table</h3>
+                        <table id="results-table">
+                            <thead>
+                                <tr>
+                                    <th>Process ID</th>
+                                    <th>Arrival Time</th>
+                                    <th>Burst Time</th>
+                                    <th>Completion Time</th>
+                                    <th>Turnaround Time</th>
+                                    <th>Waiting Time</th>
+                                </tr>
+                            </thead>
+                            <tbody id="results-table-body">
+                                <tr>
+                                    <td colspan="6" class="placeholder">Results will appear here after calculation</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="metrics">
+                            <h3>Performance Metrics</h3>
+                            <div class="metrics-values">
+                                <p>Average Waiting Time: <span id="avg-waiting-time">-</span></p>
+                                <p>Average Turnaround Time: <span id="avg-turnaround-time">-</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison-section">
+                    <h3>Algorithm Comparison</h3>
+                    <div id="comparison-container">
+                        <button id="compare-btn">Compare All Algorithms</button>
+                        <div id="comparison-results" style="display: none;">
+                            <table id="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Algorithm</th>
+                                        <th>Avg. Waiting Time</th>
+                                        <th>Avg. Turnaround Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="comparison-table-body">
+                                    <!-- Comparison results will appear here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <!-- Removed export buttons -->
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
