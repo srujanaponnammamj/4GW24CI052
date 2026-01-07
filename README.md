@@ -77,12 +77,10 @@ Contains Skill Lab related programs, practice files, and learning materials.
 - **Compiler:** GCC
 - **Version Control:** Git & GitHub
 
----
 
 
 
 
 
 
-**USN:** 4GW24CI052  
-**Institute:** GSSS Institute of Engineering & Technology for Women, Mysuru
+
